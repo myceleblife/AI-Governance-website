@@ -263,17 +263,44 @@
                     <p>No sales pitch. We review your agent setup and tell you if AgentProtector makes sense for your
                         scale.</p>
                 </div>
-                <form class="contact-form">
+                <form class="contact-form" id="risk-review-form">
                     <div class="form-group">
                         <label for="email">Work Email</label>
                         <input type="email" id="email" placeholder="name@company.com" required>
+                        <span id="email-error" class="error-msg">Please use a valid work email (no Gmail, Outlook, or
+                            Yahoo).</span>
                     </div>
                     <div class="form-group">
                         <label for="role">Role / Title</label>
                         <input type="text" id="role" placeholder="e.g. Head of AI Research" required>
                     </div>
                     <div class="form-group">
-                        <label for="agents">What kind of agents are you running?</label>
+                        <label>What kind of agents are you running?</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="agent-type" value="Autonomous Research">
+                                <span>Autonomous Research</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="agent-type" value="Customer Support Agents">
+                                <span>Customer Support Agents</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="agent-type" value="Financial Analysis">
+                                <span>Financial Analysis</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="agent-type" value="Code Generation">
+                                <span>Code Generation</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="agent-type" value="Other" id="other-checkbox">
+                                <span>Other</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group hidden" id="other-description-group">
+                        <label for="agents">Please describe your agents</label>
                         <textarea id="agents" placeholder="Describe your current autonomous agent workflows..."
                             rows="4"></textarea>
                     </div>

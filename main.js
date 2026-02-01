@@ -84,4 +84,40 @@ document.addEventListener('DOMContentLoaded', () => {
             behavior: 'smooth'
         });
     });
+
+    // Form Validation and Logic
+    const form = document.querySelector('#risk-review-form');
+    const emailInput = document.querySelector('#email');
+    const emailError = document.querySelector('#email-error');
+    const otherCheckbox = document.querySelector('#other-checkbox');
+    const otherGroup = document.querySelector('#other-description-group');
+
+    if (form) {
+        // Toggle "Other" description field
+        otherCheckbox.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                otherGroup.classList.remove('hidden');
+            } else {
+                otherGroup.classList.add('hidden');
+            }
+        });
+
+        // Email Validation
+        form.addEventListener('submit', (e) => {
+            const email = emailInput.value.toLowerCase();
+            const forbiddenDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'icloud.com'];
+            const domain = email.split('@')[1];
+
+            if (forbiddenDomains.includes(domain)) {
+                e.preventDefault();
+                emailError.classList.add('visible');
+                emailInput.style.borderColor = '#ff4d4d';
+            } else {
+                emailError.classList.remove('visible');
+                emailInput.style.borderColor = 'var(--border)';
+                // Form would submit normally here or via fetch
+                alert('Analysis request sent. An architect will review your setup.');
+            }
+        });
+    }
 });
