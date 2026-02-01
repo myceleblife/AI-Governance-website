@@ -769,6 +769,109 @@ footer {
     border-bottom-color: var(--accent);
 }
 
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 12, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: var(--bg-section);
+    border: 1px solid var(--border);
+    padding: 3.5rem;
+    border-radius: 8px;
+    max-width: 700px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.success-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    border: 1px solid #10b981;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    margin: 0 auto 1.5rem;
+}
+
+.modal-body p {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+.modal-tools {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.modal-tool-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: 6px;
+    transition: var(--transition);
+}
+
+.modal-tool-card:hover {
+    border-color: var(--accent);
+}
+
+.modal-tool-card h5 {
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+.modal-tool-card p {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.btn.small {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+}
+
+.modal-footer {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.text-link {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.text-link:hover {
+    color: var(--text-primary);
+}
+
 /* Animations */
 .reveal {
     opacity: 0;

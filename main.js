@@ -89,8 +89,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('#risk-review-form');
     const emailInput = document.querySelector('#email');
     const emailError = document.querySelector('#email-error');
+    const checkboxError = document.querySelector('#checkbox-error');
     const otherCheckbox = document.querySelector('#other-checkbox');
     const otherGroup = document.querySelector('#other-description-group');
+    const successModal = document.querySelector('#success-modal');
+    const closeModal = document.querySelector('#close-modal');
 
     if (form) {
         // Toggle "Other" description field
@@ -102,9 +105,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        // Modal Close logic
+        if (closeModal) {
+            closeModal.addEventListener('click', () => {
+                successModal.classList.add('hidden');
+            });
+        }
+
         // Form Submission via AJAX (Formspree)
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
+
+            let hasError = false;
 
             // Email Validation
             const email = emailInput.value.toLowerCase();
@@ -114,11 +126,24 @@ document.addEventListener('DOMContentLoaded', () => {
             if (forbiddenDomains.includes(domain)) {
                 emailError.classList.add('visible');
                 emailInput.style.borderColor = '#ff4d4d';
-                return;
+                hasError = true;
+            } else {
+                emailError.classList.remove('visible');
+                emailInput.style.borderColor = 'var(--border)';
             }
 
-            emailError.classList.remove('visible');
-            emailInput.style.borderColor = 'var(--border)';
+            // Checkbox Validation (At least one)
+            const agentCheckboxes = form.querySelectorAll('input[name="agent-type[]"]');
+            const isAnyChecked = Array.from(agentCheckboxes).some(cb => cb.checked);
+
+            if (!isAnyChecked) {
+                checkboxError.classList.add('visible');
+                hasError = true;
+            } else {
+                checkboxError.classList.remove('visible');
+            }
+
+            if (hasError) return;
 
             // Prepare Data for Formspree
             const formData = new FormData(form);
@@ -138,7 +163,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (response.ok) {
-                    alert('Submission successful. An architect will review your agent configuration and contact you.');
+                    // Show attractive modal instead of alert
+                    successModal.classList.remove('hidden');
                     form.reset();
                     otherGroup.classList.add('hidden');
                 } else {

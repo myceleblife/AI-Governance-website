@@ -355,6 +355,7 @@
                                 <span>Other</span>
                             </label>
                         </div>
+                        <span id="checkbox-error" class="error-msg">Please select at least one agent type.</span>
                     </div>
                     <div class="form-group hidden" id="other-description-group">
                         <label for="agents">Please describe your agents</label>
@@ -384,6 +385,38 @@
             <path d="m18 15-6-6-6 6" />
         </svg>
     </button>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal-overlay hidden">
+        <div class="modal-content reveal">
+            <div class="modal-header">
+                <div class="success-icon">✓</div>
+                <h3 class="title">Review Request Received</h3>
+            </div>
+            <div class="modal-body">
+                <p>An architect has been assigned to review your agent configuration. While we analyze your stack, you
+                    can explore the foundations of our oversight logic:</p>
+
+                <div class="modal-tools">
+                    <div class="modal-tool-card">
+                        <h5>Data Flow Logic</h5>
+                        <p>See how we establish visibility within autonomous reasoning chains.</p>
+                        <a href="https://vec-tools.vercel.app/data-flow-visualizer" target="_blank"
+                            class="btn secondary-btn small">Launch Visualizer</a>
+                    </div>
+                    <div class="modal-tool-card">
+                        <h5>Risk Surface</h5>
+                        <p>Calculate your cumulative exposure before manual intervention fails.</p>
+                        <a href="https://vec-tools.vercel.app/risk-calculator" target="_blank"
+                            class="btn secondary-btn small">Estimate Risk</a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="close-modal" class="text-link">Return to Site</button>
+            </div>
+        </div>
+    </div>
 
     <script type="module" src="./main.js"></script>
 </body>
