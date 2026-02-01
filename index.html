@@ -43,7 +43,8 @@
                         autonomous behavior in real time, ensuring safety without stifling autonomy.
                     </p>
                     <div class="cta-group">
-                        <a href="#definition" class="btn primary-btn">Understand AgentProtector</a>
+                        <a href="#contact" class="btn primary-btn">Talk to an Oversight Architect</a>
+                        <a href="#how-it-works" class="btn ghost-btn">See How Oversight Works (2 min)</a>
                     </div>
                 </div>
             </div>
@@ -55,24 +56,50 @@
         <section id="problem" class="section dark-bg">
             <div class="container grid-split">
                 <div class="text-block reveal">
-                    <h2 class="section-tag">The Problem</h2>
-                    <h3 class="title">The Visibility Gap in Autonomous Systems</h3>
-                    <p>Current AI governance models are built for deterministic software. In the era of autonomous
-                        agents, these models fail as systems evolve, drift, and act beyond their initial prompts.</p>
+                    <h2 class="section-tag">Risk Moments</h2>
+                    <h3 class="title">When Autonomous Safety Fails</h3>
+                    <p>Standard monitoring assumes behavior is constant. In reality, autonomous agents are safe until
+                        they aren't. We focus on the moments where visibility disappears.</p>
                     <ul class="bullet-list">
-                        <li><strong>Silent Model Drift:</strong> Gradual shifts in behavior that bypass threshold-based
-                            monitoring.</li>
-                        <li><strong>Runaway Automation:</strong> Multi-step agents executing actions in black boxes
-                            without audit trails.</li>
-                        <li><strong>Policy Violations:</strong> Real-time breaches of corporate and regulatory
-                            guidelines that are only detected post-facto.</li>
-                        <li><strong>Lack of Intent Visibility:</strong> Knowing <em>what</em> an AI did, but never
-                            <em>why</em>.
-                        </li>
+                        <li><strong>Silent Model Drift:</strong> When yesterday's safe output becomes today's compliance
+                            incident through gradual, undetected semantic shifts.</li>
+                        <li><strong>Runaway Automation:</strong> When an agent behaves correctly... until a multi-step
+                            loop executes actions in a black box without an audit trail.</li>
+                        <li><strong>Policy Violations:</strong> When real-time breaches occurs because human review
+                            cannot scale to the speed of agent interaction.</li>
+                        <li><strong>Intent Opacity:</strong> Knowing <em>what</em> an agent did, but having zero
+                            visibility into the logic that bypassed your guardrails.</li>
                     </ul>
                 </div>
                 <div class="visual-block reveal">
                     <img src="/assets/problem.png" alt="AI Risk Complexity">
+                </div>
+            </div>
+        </section>
+
+        <section id="audience" class="section dark-bg">
+            <div class="container">
+                <div class="reveal text-center mb-5">
+                    <h2 class="section-tag">Audience</h2>
+                    <h3 class="title">Who This Is For</h3>
+                </div>
+                <div class="grid-cards">
+                    <div class="card reveal">
+                        <h4>AI Platform Owners</h4>
+                        <p>For those managing the infrastructure where autonomous agents interact and scale.</p>
+                    </div>
+                    <div class="card reveal">
+                        <h4>Security & Governance</h4>
+                        <p>For leaders responsible for ensuring agent behavior remains within regulatory boundaries.</p>
+                    </div>
+                    <div class="card reveal">
+                        <h4>CTO / Engineering</h4>
+                        <p>For technical leads building agentic workflows that require persistent oversight.</p>
+                    </div>
+                </div>
+                <div class="text-center mt-5 reveal">
+                    <p class="large-p" style="font-size: 1.2rem; color: var(--text-primary);">If autonomous agents can
+                        act without human review, this is designed for you.</p>
                 </div>
             </div>
         </section>
@@ -229,19 +256,30 @@
             </div>
         </section>
 
-        <section id="vision" class="section vision-section">
-            <div class="container text-center reveal">
-                <h3 class="title">The Future of Safe Agency</h3>
-                <p class="large-p">
-                    We believe the path to true AI autonomy is paved with intelligent oversight.
-                    AgentProtector represents the final piece of the enterprise AI stack:
-                    the layer that makes the inevitable safe.
-                </p>
-                <div class="final-cta">
-                    <h4>Designing the future of AI oversight.</h4>
-                    <a href="mailto:governance@vectoredge.ai" class="btn secondary-btn">Inquire for Enterprise
-                        Deployment</a>
+        <section id="contact" class="section dark-bg">
+            <div class="container max-w-lg reveal">
+                <div class="text-center mb-5">
+                    <h3 class="title" style="font-size: 2.5rem;">Start with Oversight, Not Control</h3>
+                    <p>No sales pitch. We review your agent setup and tell you if AgentProtector makes sense for your
+                        scale.</p>
                 </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="email">Work Email</label>
+                        <input type="email" id="email" placeholder="name@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Role / Title</label>
+                        <input type="text" id="role" placeholder="e.g. Head of AI Research" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="agents">What kind of agents are you running?</label>
+                        <textarea id="agents" placeholder="Describe your current autonomous agent workflows..."
+                            rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn primary-btn w-full">Request a Risk Review</button>
+                    <p class="form-footer">Designed for teams building autonomous systems in regulated environments.</p>
+                </form>
             </div>
         </section>
     </main>
@@ -251,7 +289,7 @@
             <div class="footer-border"></div>
             <div class="footer-content">
                 <div class="logo-small">AGENT<span>PROTECTOR</span></div>
-                <p>&copy; 2026 AgentProtector Concepts. All rights reserved.</p>
+                <p>&copy; 2026 AgentProtector Concepts. Designed for sensitive AI environments.</p>
             </div>
         </div>
     </footer>
