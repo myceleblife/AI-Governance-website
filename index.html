@@ -320,46 +320,46 @@
                     <p>No sales pitch. We review your agent setup and tell you if AgentProtector makes sense for your
                         scale.</p>
                 </div>
-                <form class="contact-form" id="risk-review-form">
+                <form class="contact-form" id="risk-review-form" action="https://formspree.io/f/xjgokkeq" method="POST">
                     <div class="form-group">
                         <label for="email">Work Email</label>
-                        <input type="email" id="email" placeholder="name@company.com" required>
+                        <input type="email" id="email" name="email" placeholder="name@company.com" required>
                         <span id="email-error" class="error-msg">Please use a valid work email (no Gmail, Outlook, or
                             Yahoo).</span>
                     </div>
                     <div class="form-group">
                         <label for="role">Role / Title</label>
-                        <input type="text" id="role" placeholder="e.g. Head of AI Research" required>
+                        <input type="text" id="role" name="role" placeholder="e.g. Head of AI Research" required>
                     </div>
                     <div class="form-group">
                         <label>What kind of agents are you running?</label>
                         <div class="checkbox-group">
                             <label class="checkbox-item">
-                                <input type="checkbox" name="agent-type" value="Autonomous Research">
+                                <input type="checkbox" name="agent-type[]" value="Autonomous Research">
                                 <span>Autonomous Research</span>
                             </label>
                             <label class="checkbox-item">
-                                <input type="checkbox" name="agent-type" value="Customer Support Agents">
+                                <input type="checkbox" name="agent-type[]" value="Customer Support Agents">
                                 <span>Customer Support Agents</span>
                             </label>
                             <label class="checkbox-item">
-                                <input type="checkbox" name="agent-type" value="Financial Analysis">
+                                <input type="checkbox" name="agent-type[]" value="Financial Analysis">
                                 <span>Financial Analysis</span>
                             </label>
                             <label class="checkbox-item">
-                                <input type="checkbox" name="agent-type" value="Code Generation">
+                                <input type="checkbox" name="agent-type[]" value="Code Generation">
                                 <span>Code Generation</span>
                             </label>
                             <label class="checkbox-item">
-                                <input type="checkbox" name="agent-type" value="Other" id="other-checkbox">
+                                <input type="checkbox" name="agent-type[]" value="Other" id="other-checkbox">
                                 <span>Other</span>
                             </label>
                         </div>
                     </div>
                     <div class="form-group hidden" id="other-description-group">
                         <label for="agents">Please describe your agents</label>
-                        <textarea id="agents" placeholder="Describe your current autonomous agent workflows..."
-                            rows="4"></textarea>
+                        <textarea id="agents" name="agent-description"
+                            placeholder="Describe your current autonomous agent workflows..." rows="4"></textarea>
                     </div>
                     <button type="submit" class="btn primary-btn w-full">Request a Risk Review</button>
                     <p class="form-footer">Designed for teams building autonomous systems in regulated environments.</p>

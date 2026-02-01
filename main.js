@@ -102,21 +102,58 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Email Validation
-        form.addEventListener('submit', (e) => {
+        // Form Submission via AJAX (Formspree)
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Email Validation
             const email = emailInput.value.toLowerCase();
             const forbiddenDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'icloud.com'];
             const domain = email.split('@')[1];
 
             if (forbiddenDomains.includes(domain)) {
-                e.preventDefault();
                 emailError.classList.add('visible');
                 emailInput.style.borderColor = '#ff4d4d';
-            } else {
-                emailError.classList.remove('visible');
-                emailInput.style.borderColor = 'var(--border)';
-                // Form would submit normally here or via fetch
-                alert('Analysis request sent. An architect will review your setup.');
+                return;
+            }
+
+            emailError.classList.remove('visible');
+            emailInput.style.borderColor = 'var(--border)';
+
+            // Prepare Data for Formspree
+            const formData = new FormData(form);
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    alert('Submission successful. An architect will review your agent configuration and contact you.');
+                    form.reset();
+                    otherGroup.classList.add('hidden');
+                } else {
+                    const data = await response.json();
+                    if (Object.hasOwn(data, 'errors')) {
+                        alert(data["errors"].map(error => error["message"]).join(", "));
+                    } else {
+                        alert('Oops! There was a problem submitting your form. Please try again.');
+                    }
+                }
+            } catch (error) {
+                alert('Connection error. Please check your network and try again.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
             }
         });
     }
