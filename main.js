@@ -165,6 +165,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.ok) {
                     // Show attractive modal instead of alert
                     successModal.classList.remove('hidden');
+                    // Trigger reveal animations inside modal
+                    successModal.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
                     form.reset();
                     otherGroup.classList.add('hidden');
                 } else {

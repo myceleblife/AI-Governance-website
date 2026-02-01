@@ -388,7 +388,7 @@ p {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .form-footer {
