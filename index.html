@@ -180,16 +180,20 @@
                     </div>
                 </div>
 
-                <div class="tool-embed-container reveal mt-5">
+                <div class="tool-preview-card reveal mt-5">
                     <div class="text-center mb-4">
                         <h3 class="title" style="font-size: 2rem;">See How Data Becomes Decisions</h3>
                         <p>AgentProtector begins with visibility. Before you can govern AI behavior, you must understand
                             how data flows through autonomous systems.</p>
-                        <span class="tool-label">Interactive Example</span>
+                        <span class="tool-badge">Interactive Preview</span>
                     </div>
-                    <div class="iframe-wrapper">
-                        <iframe src="https://vec-tools.vercel.app/data-flow-visualizer" frameborder="0" loading="lazy"
-                            title="Data Flow Visualizer"></iframe>
+                    <div class="preview-visual">
+                        <img src="/assets/data_flow_preview.png" alt="Data Flow System Diagram">
+                        <div class="preview-overlay">
+                            <a href="https://vec-tools.vercel.app/data-flow-visualizer" target="_blank"
+                                class="btn primary-btn glass-btn">Explore Data Flow (opens tool)</a>
+                            <p class="helper-text">Opens an interactive example. No data is collected.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -271,19 +275,36 @@
 
         <section id="risk-calculator" class="section">
             <div class="container">
-                <div class="tool-embed-container reveal text-center">
+                <div class="tool-preview-card reveal text-center">
                     <h2 class="section-tag">Assessment</h2>
                     <h3 class="title" style="font-size: 2rem;">Understand Your Agent Risk Surface</h3>
                     <p class="max-w-lg mb-4" style="margin: 0 auto 2rem;">
                         If autonomous agents operate without continuous oversight, risk accumulates quietly.
                         This calculator provides a high-level estimate — not a sales pitch.
                     </p>
-                    <span class="tool-label">Exploratory Risk Estimate</span>
-                    <div class="iframe-wrapper mini-tool">
-                        <iframe src="https://vec-tools.vercel.app/risk-calculator" frameborder="0" loading="lazy"
-                            title="Risk Calculator"></iframe>
+
+                    <div class="risk-summary-card">
+                        <div class="risk-item">
+                            <label>Risk Level</label>
+                            <span class="value medium">Medium</span>
+                        </div>
+                        <div class="risk-item">
+                            <label>Drift Exposure</label>
+                            <span class="value high">High</span>
+                        </div>
+                        <div class="risk-item">
+                            <label>Oversight Coverage</label>
+                            <span class="value low">Low</span>
+                        </div>
+                        <div class="card-action">
+                            <a href="https://vec-tools.vercel.app/risk-calculator" target="_blank"
+                                class="btn secondary-btn">Estimate Your Risk</a>
+                        </div>
                     </div>
+
                     <div class="transition-to-form mt-5">
+                        <p class="soft-bridge">This provides a high-level estimate. A Guardian Agent review gives
+                            actionable guidance.</p>
                         <div class="divider"></div>
                         <p class="mt-4">Want a real assessment? <a href="#contact" class="accent-link">Request a
                                 Guardian Agent risk review.</a></p>
